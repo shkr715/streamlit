@@ -9,7 +9,7 @@ import pandas as pd
 def get_todays_photo():
     url = "https://api.nasa.gov/planetary/apod"
     params = {
-              "api_key": st.secrets.NASAAIAPI.nasa_api_key,  # NASA APIキーを設定
+              "api_key": st.secrets.NASAAPI.nasa_api_key,  # NASA APIキーを設定
               }
     response = requests.get(url, params=params)
     if response.status_code == 200:
