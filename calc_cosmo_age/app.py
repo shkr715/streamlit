@@ -34,7 +34,7 @@ if button:
     st.write('宇宙年齢 : {}'.format(st.session_state['cosmo_age']))
 
 # todays photo
-st.sidebar.header(f'Today's Photo {datetime.date.today()}')
+st.sidebar.header(datetime.date.today())
 todays_photo = get_todays_photo(datetime.date.today())
 url = todays_photo['url']
 exp = todays_photo['explanation']
