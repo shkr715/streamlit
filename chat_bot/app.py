@@ -2,7 +2,6 @@
 import streamlit as st
 from streamlit_chat import message
 import openai
-import secret_keys  # 外部ファイルにAPI keyを保存
 
 openai.api_key = st.secrets.OPENAIAPI.openai_api_key
 
