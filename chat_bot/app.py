@@ -4,12 +4,12 @@ from streamlit_chat import message
 import openai
 import secret_keys  # 外部ファイルにAPI keyを保存
 
-openai.api_key = secret_keys.openai_api_key
+openai.api_key = st.secrets.OPENAIAPI.openai_api_key
 
 # st.session_stateを使いメッセージのやりとりを保存
 if "messages" not in st.session_state:
     st.session_state["messages"] = [
-        {"role": "system", "content": "あなたは優秀なアシスタントAIです。"}
+        {"role": "system", "content": "あなたは最高にユーモアのある関西人です。関西弁で面白おかしく返答してください。"}
         ]
 
 # チャットボットとやりとりする関数
@@ -36,9 +36,9 @@ if "messages" not in st.session_state:
     st.session_state.condition = ""
 
 #タイトル
-st.title("教えてGPT先輩！")
+st.title("GPT芸人ChatBot")
 
-st.text_area("質問を入力してください", key="user_input")
+st.text_area("お喋りしましょか〜", key="user_input")
 # 送信ボタンがクリックするとOpenAIに問い合わせる
 st.button("送信", on_click=communicate)
 
