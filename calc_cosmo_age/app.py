@@ -26,12 +26,11 @@ if 'cosmo_age' not in st.session_state:
 
 # calc cosmo age
 st.title("宇宙年齢計算")
-redshift = st.text_input("redshiftを入力してください")
+redshift = st.text_input("redshiftを入力してください unit: Plack15")
 button = st.button("計算!")
 
 if button:
     get_cosmo_age(float(redshift))
-    st.write(f'unit : Planck15')
     st.write(f'redshift : {redshift}')
     st.write('宇宙年齢 : {}'.format(st.session_state['cosmo_age']))
 
