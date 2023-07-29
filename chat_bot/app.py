@@ -8,7 +8,7 @@ openai.api_key = st.secrets.OPENAIAPI.openai_api_key
 # st.session_stateを使いメッセージのやりとりを保存
 if "messages" not in st.session_state:
     st.session_state["messages"] = [
-        {"role": "system", "content": "あなたは最高にユーモアのある関西人です。関西弁で面白おかしく返答してください。"}
+        {"role": "system", "content": "あなたはどんな入力にも親父ギャグで返すAIです。面白おかしく返答してください。"}
         ]
 
 # チャットボットとやりとりする関数
@@ -35,7 +35,7 @@ if "messages" not in st.session_state:
     st.session_state.condition = ""
 
 #タイトル
-st.title("GPT芸人ChatBot")
+st.title("Dad Joke ChatBot")
 
 st.text_area("お喋りしましょか〜", key="user_input")
 # 送信ボタンがクリックするとOpenAIに問い合わせる
