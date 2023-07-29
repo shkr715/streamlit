@@ -21,7 +21,8 @@ def get_todays_photo(date):
 def get_cosmo_age(redshift):
     st.session_state['cosmo_age'] = cosmo.age(redshift)
 
-st.session_state['cosmo_age'] = 0.0
+if 'cosmo_age' not in st.sesstion_state:
+    st.session_state['cosmo_age'] = 0.0
 
 # calc cosmo age
 st.title("宇宙年齢計算")
