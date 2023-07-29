@@ -1,15 +1,13 @@
-# 以下を「app.py」に書き込み
 import streamlit as st
 from astropy.cosmology import Planck15 as cosmo
 import astropy.units as u
 import datetime
-import nasa_keys
 import requests
 
 def get_todays_photo(date):
     url = "https://api.nasa.gov/planetary/apod"
     params = {
-              "api_key": nasa_keys.nasa_api_keys,  # NASA APIキーを設定
+              "api_key": st.secrets.NASAAPI.nasa_api_keys,  # NASA APIキーを設定
               "date": date
               }
     response = requests.get(url, params=params)
@@ -36,8 +34,8 @@ if button:
     st.write('宇宙年齢 : {}'.format(st.session_state['cosmo_age']))
 
 # todays photo
-#st.header(datetime.date.today())
+st.sidebar.header(f'Today's Photo {datetime.date.today()}')
 todays_photo = get_todays_photo(datetime.date.today())
 url = todays_photo['url']
 exp = todays_photo['explanation']
-st.image(url, caption=exp,use_column_width=True)
+st.sidebar.image(url, caption=exp,use_column_width=True)
